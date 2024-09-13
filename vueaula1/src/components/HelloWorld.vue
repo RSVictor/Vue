@@ -1,58 +1,108 @@
+
+------------------------ Exercicio aula 1-------------------
+
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+<div>
+    <div>
+        <h1>{{msg}}</h1>
+    </div>
+    <hr>
+    
+      <h3>{{Exercicio1}}</h3>
+        <p>{{mensagem}}</p>
+    
+    </div>
+    <hr>
+
+    <div>
+      <h3>{{Exercicio2}}</h3>
+        <p>Contador:{{ contador }}</p>
+         <button @click="incrementar">Clique para incrementar</button>
+    
+    </div>
+    <hr>
+
+    <div>
+      <h3>{{Exercicio3}}</h3>
+        <button @click="alternarMostrar">
+            {{ mostrar ? 'Ocultar Texto' : 'Mostrar Texto' }}
+         </button>
+        <p v-if="mostrar">Este é o texto que pode ser mostrado ou ocultado.</p>
+    </div>
+    <hr>
+
+     <div>
+      <h3>{{Exercicio4}}</h3>
+     <ul>
+            <li v-for="(item, index) in itens" :key="index">
+       
+        {{ item }}
+      </li>
+        </ul>
+      
+    </div>
+    <hr>
+
+     <div>
+      <h3>{{Exercicio5}}</h3>
+        <input type="text" v-model="nome" placeholder="Digite seu nome" />
+
+         <p>Nome digitado: {{ nome }}</p>
+    </div>
+     <hr>
+     
+      <div>
+      <h3>{{Exercicio6}}</h3>
+      
+
+         <p class="teste">Texto para teste</p>
+    </div>
 </template>
+ 
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
+    data(){
+        return{
+            msg: "Atividades aula 1",
+            Exercicio1:"Exercício 1",
+             mensagem: "Bem-vindo ao Vue.js",
+
+            Exercicio2: "Exercício 2",
+            contador: 0,
+
+            Exercicio3: "Exercício 3",
+            mostrar: false,
+
+            Exercicio4: "Exercício 4",
+             itens: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+                
+            Exercicio5: "Exercício 5",
+              nome: ''
+        };
+    },
+    methods: {
+    incrementar() {
+            this.contador++;
+        },
+    alternarMostrar(){
+        this.mostrar = !this.mostrar;
+    }
+    }
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+p {
+    color:red;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+ h1{
+    color:black;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.teste{
+    color: green;
 }
 </style>
+
+
